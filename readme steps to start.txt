@@ -9,6 +9,7 @@ If using PowerShell:
 PowerShell
 
 .venv\Scripts\Activate.ps1
+
 If using Command Prompt:
 
 DOS
