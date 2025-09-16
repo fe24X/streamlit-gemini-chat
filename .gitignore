@@ -1,0 +1,9 @@
+# Ignore the Streamlit secrets file
+.streamlit/secrets.toml
+
+# Ignore the Python virtual environment folder
+.venv/
+.tmp.driveupload/
+
+# Ignore Python cache files
+__pycache__/
