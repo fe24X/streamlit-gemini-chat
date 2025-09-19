@@ -1,12 +1,15 @@
 import google.generativeai as genai
 import json
-import os # <-- 1. Import the os library
 import streamlit as st
+#import os <-- 1. Import the os library
+# Configure the Gemini API with the key from secrets
+
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 # --- 2. Configure the API key right after the imports ---
 
-
 # Configure the Gemini API with the key from secrets
+
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 
@@ -36,7 +39,11 @@ def get_intent(prompt: str) -> dict:
         json_response_string = response_text.strip().replace("```json", "").replace("```", "")
         return json.loads(json_response_string)
     except json.JSONDecodeError:
-        return {"intent": "parsing_error", "entities": {"raw_response": response_text}}
+        return {
+            "intent": "parsing_error",
+            "entities": {"raw_response": response_text},
+            "user_check_question": "Is the extracted intent and entities correct? If not, please specify the correct ones."
+        }
 
 
 # The rest of your test code remains the same

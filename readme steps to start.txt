@@ -19,4 +19,5 @@ Run Streamlit App: Once (.venv) appears in your terminal prompt, start the appli
 
 Bash
 
-streamlit run app.py
+streamlit run GenAiApp.py
+
